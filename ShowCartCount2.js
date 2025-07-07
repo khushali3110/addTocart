@@ -174,15 +174,6 @@ function addToCart(id) {
 }
 
 
-// function countCart(){
-//   const cartList = JSON.parse(localStorage.getItem('cartList'))
-    
-
-//    document.querySelector('#cartcount').innerHTML = cartList.length;
-// }
-// countCart()
-
-
 function countCart() {
   const cartList = JSON.parse(localStorage.getItem('cartList'));
   
