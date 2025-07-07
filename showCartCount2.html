@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous" />
+</head>
+
+<body>
+  <div id="cartDetils"></div>
+
+  <script>
+    let cartList = JSON.parse(localStorage.getItem("cartList")) 
+
+   
+
+    console.log(cartList);
+    console.log(cartList.length);
+
+    function showCart() {
+      let cartList = JSON.parse(localStorage.getItem("cartList"))
+    
+
+      var output = "";
+
+      if (cartList.length > 0) {
+        cartList.forEach((cart) => {
+          output += `
+            <div class="col-lg-8 mx-auto p-5 shadow">
+              <div class="row">
+                <div class="col-lg-4">
+                  <img src="${cart.p_url}" alt="" class="" style="width:250px; height:250px">
+                </div>
+                <div class="col-lg-8">
+                  <h2>${cart.p_name}</h2>
+                  <ul>
+                    <li>Category: ${cart.category}</li>
+                    <li>Price: ${cart.p_price}</li>
+                    <li>Quantity: ${cart.count}</li>
+                    <li>Total Amount: ${cart.p_price * cart.count}</li>
+                  </ul>
+                  <button class="btn btn-danger" onclick="removeCart(${cart.id})">Delete</button>
+                </div>
+              </div>
+            </div>`;
+        });
+
+        document.querySelector("#cartDetils").innerHTML = output;
+      } else {
+        document.querySelector("#cartDetils").innerHTML = "<h3><b>no cart items</b></h3>";
+        
+      }
+    }
+
+    function removeCart(id) {
+      alert(id);
+
+      const filterData = cartList.filter((cart) => {
+        return cart.id !== id;
+      });
+
+      localStorage.setItem("cartList", JSON.stringify(filterData));
+      
+      location.reload();
+    }
+
+    showCart(); 
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

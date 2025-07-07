@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show_to_cart</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+       
+        .btn1{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(18, 3, 3);
+            width: 50%;
+            border-radius: 5px;
+            height: 40px;
+            align-items: center;
+            margin-left: 55px;
+            color: aliceblue;
+            margin-left: 60px;
+        }
+
+       .btn{
+        
+        margin-right: 65%;
+        margin-top: 15px;
+        justify-content:space-between;
+        
+        
+       }
+
+       .btn2{
+            margin-left: 220px;
+            background-color: burlywood;
+            width: 38px;
+            height: 35px;
+            border-radius: 5px;
+            font-size: 22px;
+            margin-bottom: 50px;
+            
+       }
+
+        #update{
+            display: none;
+        }
+
+        .main-btn{
+            display: flex;
+            align-items: center; 
+        }
+
+        .show{
+            font-size: 55px;
+            margin-left: 45px;
+            margin-top: 55px;
+        }
+
+        #cartcount{
+            font-size: 35px;
+            margin-left: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class=" text-center">
+        <a href="./showCartCount2.html">
+            <div class="show"><i class="fa-solid fa-cart-shopping"></i>
+                <span id="cartcount"></span>
+                <span id="qtyCount"></span>
+            </div>
+        
+    </a>
+    </div>
+
+   <div class="col-lg-6 mx-auto my-5 p-5 shadow">
+    <form id="productInfo" method="post">
+        <div class="mt-4">
+            <select id="category"class="form-select" name="category">
+                <option value="" selected disabled>--select category--</option>
+                <option value="cloth">cloth</option>
+                <option value="electronic">electronic</option>
+                <option value="toy">toy</option>
+                <option value="other">other</option>
+            </select>
+        </div>
+        <div class="mt-4">
+            <input type="text" class="form-control" name="p_name" id="p_name" placeholder="enter product name" >
+        </div>
+         <div class="mt-4">
+            <input type="number" class="form-control"  id="p_price" placeholder="enter product price" >
+        </div>
+         <div class="mt-4">
+            <input type="url" class="form-control"  id="p_url" placeholder="enter product url">
+        </div>
+         <div class="mt-4">
+           <button id = "submit" class="btn btn-outline-success">Submit</button>
+           <button type="button" id = "update" class="btn btn-outline-danger">Update</button>
+        </div>
+
+    </form>
+   </div>
+   <div class="container my-5">
+        <div class="row" id="showProduct"></div>
+   </div>
+   <script src="./ShowCartCount2.js"></script>
+</body>
+</html>
